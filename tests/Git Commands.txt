@@ -1,0 +1,5 @@
+For new Projects:
+    1. git init  ====> "initialize repository" in the source control section
+    2. git add .  ====> "+" symbol in the source control section
+    3. git commit -m "commitmessage" ====> in the source control section
+    3. git branch -M master & git remote add ===> "..." in the source control section -> remote -> add remote
