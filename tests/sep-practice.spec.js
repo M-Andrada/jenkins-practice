@@ -60,8 +60,22 @@ test('SEP Practice', async ({ page }) => {
     let cvcInput = paymentFrame.locator("//input[@name='cvc']");
     await cvcInput.fill(process.env.CVC);
 
-    let zipCodeInput = paymentFrame.locator("//input[@name='postalCode']");
-    await zipCodeInput.fill(process.env.ZIP_CODE);
+
+    let dropDownIframe = paymentFrame.locator(
+      "//select[@id='Field-countryInput']"
+    );
+    await dropDownIframe.click();
+
+    await dropDownIframe.selectOption({ label: "United States" });
+
+    let zipCode = paymentFrame.locator("//input[@name='postalCode']");
+    await expect(zipCode).toBeVisible();
+    await zipCode.fill(process.env.ZIP_CODE);
+
+    await page.waitForTimeout(3000);
+    //let zipCodeInput = paymentFrame.locator("//input[@name='postalCode']");
+    //await zipCodeInput.fill("12345");
+   // await page.waitForTimeout(4000);
 
     let termsAndConditionsCheckBox = page.locator("//input[@type='checkbox' and @id='defaultCheck2']");
     await termsAndConditionsCheckBox.check();

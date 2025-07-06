@@ -35,6 +35,8 @@ test.describe("Test Group", () => {
        await expect(e).toHaveAttribute("href");
        console.log(await e.getAttribute("href"));
     }
+    
+    await page.waitForTimeout(3000);
 
   });
 
