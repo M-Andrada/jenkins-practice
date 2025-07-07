@@ -15,7 +15,7 @@ test('Bypass authentication by encoding the credentials base64 format', async ({
 
     await page.setExtraHTTPHeaders({'Authorization': `Basic ${encodedCredential}`});
 
-    page.goto("https://practice.cydeo.com/basic_auth");
+   await page.goto("https://practice.cydeo.com/basic_auth");
 
     await page.waitForTimeout(3000);
 
